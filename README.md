@@ -1,11 +1,9 @@
 # sorting-algo
-Maven project collection of different Sorting Algorithms.
+Maven project collection of different data structures.
 The following have been implemented till date
 
-1. Selection Sort
-2. Insertion Sort
-3. Quick Sort
-4. Merge Sort
-5. Shell Sort
+1. Stack
+2. Queue
+3. Binary Search Tree
 
 
