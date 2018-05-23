@@ -1,4 +1,4 @@
-# sorting-algo
+# Data structures
 Maven project collection of different data structures.
 The following have been implemented till date
 
