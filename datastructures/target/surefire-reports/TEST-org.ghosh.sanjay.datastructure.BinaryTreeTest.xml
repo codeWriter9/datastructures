@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="org.ghosh.sanjay.datastructure.BinaryTreeTest" time="0.016" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="org.ghosh.sanjay.datastructure.BinaryTreeTest" time="0.046" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\bin"/>
@@ -61,7 +61,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testTree" time="0.016"/>
-  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testTree3" time="0"/>
-  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testTree2" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testInsertTreeAndTreeTraversal" time="0.031"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testDeleteNode" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testMinima" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testMaxima" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testSearchTree" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testInsertTree" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testInOrderPredecessor" time="0"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.BinaryTreeTest" name="testDeleteRootNode" time="0.015"/>
 </testsuite>

@@ -84,6 +84,7 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	}
 	
 	public boolean isEqualTo(BinaryTreeNode<T> other) {
+		if(other == null) return false;
 		return this.object.compareTo((T)other.object) == 0;
 	}
 	
@@ -103,6 +104,16 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	 **/
 	public boolean isLessThan(BinaryTreeNode<T> other) {
 		return this.object.compareTo((T)other.object) < 0;
+	}
+	
+	/**
+	 *
+	 *
+	 *
+	 **/
+	public boolean equals(Object o) {
+		if(o instanceof  BinaryTreeNode) return isEqualTo((BinaryTreeNode)o);
+		else return false;
 	}
 	
 	/**

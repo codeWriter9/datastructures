@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="org.ghosh.sanjay.datastructure.StackTest" time="0.234" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="org.ghosh.sanjay.datastructure.StackTest" time="0.671" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_131\jre\bin"/>
@@ -63,5 +63,5 @@
   </properties>
   <testcase classname="org.ghosh.sanjay.datastructure.StackTest" name="testStack" time="0"/>
   <testcase classname="org.ghosh.sanjay.datastructure.StackTest" name="testStack2" time="0"/>
-  <testcase classname="org.ghosh.sanjay.datastructure.StackTest" name="testStack3" time="0.234"/>
+  <testcase classname="org.ghosh.sanjay.datastructure.StackTest" name="testStack3" time="0.671"/>
 </testsuite>
