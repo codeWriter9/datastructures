@@ -29,6 +29,12 @@ public class Queue<T> {
 		end = -1;
 	}
 	
+	/**
+	 * 
+	 * Returns the emptiness of the Queue
+	 * 
+	 * @return boolean : True if the Queue is empty else False
+	 */
 	public boolean isEmpty() {
 		return start > end || start == -1;
 	}
@@ -37,6 +43,8 @@ public class Queue<T> {
 	 *
 	 * Dequeues The Element in the queue
 	 *
+	 *
+	 *@return T element
 	 **/
 	public T dequeue() {
 		T t = array.get(start++);	
@@ -50,6 +58,7 @@ public class Queue<T> {
 	 *
 	 * Enqueues the element in the Queue
 	 *
+	 *@param T element
 	 **/
 	public void enqueue(T element) {		
 		if(array.size() > end) {
@@ -64,6 +73,10 @@ public class Queue<T> {
 	
 	/**
 	 *
+	 * Returns the String representation of this Queue
+	 *
+	 *
+	 *@return String
 	 *
 	 **/
 	public String toString() {
