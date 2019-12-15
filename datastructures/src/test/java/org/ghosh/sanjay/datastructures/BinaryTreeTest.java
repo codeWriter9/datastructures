@@ -47,10 +47,8 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		tree.inOrder(root, otherList);
-		for (Integer data : otherList) {
-			assertTrue(list.contains(data));
-		}
+		tree.preOrder(root, otherList);		
+		assertTrue(otherList.equals(list));		
 	}
 
 	/**
@@ -102,8 +100,8 @@ public class BinaryTreeTest extends TestCase {
 				tree.add(new BinaryTreeNode<Integer>(count));
 				list.add(count);
 			}
-		}
-		System.out.println(tree.search(new BinaryTreeNode<Integer>(0)));
+		}		
+		assertTrue(tree.search(new BinaryTreeNode<Integer>(0)).equals(new BinaryTreeNode<Integer>(0)));
 	}
 
 	/**

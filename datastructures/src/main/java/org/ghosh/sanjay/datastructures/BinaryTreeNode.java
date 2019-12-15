@@ -1,20 +1,15 @@
 package org.ghosh.sanjay.datastructures;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
- * Binary Tree Node 
+ * Binary Tree Node
  *
  **/
 public class BinaryTreeNode<T extends Comparable<T>> {
-	
+
 	private T object;
-	private BinaryTreeNode left;
-	private BinaryTreeNode right;
-	
+	private BinaryTreeNode<T> left;
+	private BinaryTreeNode<T> right;
 
 	/**
 	 *
@@ -26,27 +21,27 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 		this.left = null;
 		this.right = null;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
-	public BinaryTreeNode(T object, BinaryTreeNode left, BinaryTreeNode right) {
+	public BinaryTreeNode(T object, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
 		this.object = object;
 		this.left = left;
 		this.right = right;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
-	public BinaryTreeNode getLeft() {
+	public BinaryTreeNode<T> getLeft() {
 		return this.left;
 	}
-	
+
 	/**
 	 *
 	 *
@@ -55,16 +50,16 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	public void setLeft(BinaryTreeNode<T> node) {
 		this.left = node;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
-	public BinaryTreeNode getRight() {
+	public BinaryTreeNode<T> getRight() {
 		return this.right;
 	}
-	
+
 	/**
 	 *
 	 *
@@ -73,49 +68,59 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	public void setRight(BinaryTreeNode<T> node) {
 		this.right = node;
 	}
-	
+
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * @return T
+	 */
 	public T getData() {
 		return this.object;
 	}
-	
+
+	/**
+	 * 
+	 * 
+	 * @param other
+	 * @return
+	 */
 	public boolean isEqualTo(BinaryTreeNode<T> other) {
-		if(other == null) return false;
-		return this.object.compareTo((T)other.object) == 0;
+		if (other == null)
+			return false;
+		return this.object.compareTo((T) other.object) == 0;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
 	public boolean isGreaterThan(BinaryTreeNode<T> other) {
-		return this.object.compareTo((T)other.object) > 0;
+		return this.object.compareTo((T) other.object) > 0;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
 	public boolean isLessThan(BinaryTreeNode<T> other) {
-		return this.object.compareTo((T)other.object) < 0;
+		return this.object.compareTo((T) other.object) < 0;
 	}
-	
+
 	/**
 	 *
 	 *
 	 *
 	 **/
+	@SuppressWarnings("unchecked")
 	public boolean equals(Object o) {
-		if(o instanceof  BinaryTreeNode) return isEqualTo((BinaryTreeNode)o);
-		else return false;
+		if (o instanceof BinaryTreeNode<?>)
+			return isEqualTo((BinaryTreeNode<T>) o);
+		else
+			return false;
 	}
-	
+
 	/**
 	 *
 	 *

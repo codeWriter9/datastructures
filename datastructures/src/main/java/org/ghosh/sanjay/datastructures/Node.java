@@ -1,12 +1,8 @@
 package org.ghosh.sanjay.datastructures;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  *
- * Node 
+ * Node
  *
  **/
 public class Node<T> {
@@ -22,7 +18,7 @@ public class Node<T> {
 		this.object = object;
 		this.next = null;
 	}
-	
+
 	/**
 	 *
 	 *
@@ -32,7 +28,7 @@ public class Node<T> {
 		this.object = object;
 		this.next = next;
 	}
-	
+
 	/**
 	 *
 	 *
@@ -41,7 +37,7 @@ public class Node<T> {
 	public Node getNext() {
 		return this.next;
 	}
-	
+
 	/**
 	 *
 	 *

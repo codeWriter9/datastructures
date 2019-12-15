@@ -27,7 +27,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 			return null;
 		else {
 			BinaryTreeNode<T> parent = this.findParent(node);
-			if (parent == null) {
+			if (parent == null) { // if there is no parent then the node to be deleted is a root node
 				BinaryTreeNode<T> successor = inOrderSuccessor(node, new ArrayList<T>());
 				System.out.println(" succesor " + successor);
 				// root node case
@@ -40,7 +40,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 				}
 			} else if (!node.equals(parent.getLeft()) && !node.equals(parent.getRight())) {
 				// we did not find the node
-				System.out.println(" did not find the node ");
+				System.err.println(" did not find the node ");
 				return null;
 			} else {
 				BinaryTreeNode<T> actual = node.equals(parent.getLeft()) ? parent.getLeft() : parent.getRight();
@@ -104,6 +104,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	 *
 	 *
 	 **/
+	@SuppressWarnings("unchecked")
 	public BinaryTreeNode<T> search(BinaryTreeNode<T> node) {
 		if (root == null)
 			return null;
@@ -114,9 +115,9 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 				if (current.isEqualTo(node)) {
 					search = current;
 				} else if (current.isGreaterThan(node)) {
-					current = current.getRight();
-				} else {
 					current = current.getLeft();
+				} else {
+					current = current.getRight();
 				}
 			}
 			return search;
@@ -128,7 +129,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	 * Adds a node to the correct part of the tree
 	 *
 	 **/
-	public BinaryTreeNode add(BinaryTreeNode<T> node) {
+	public BinaryTreeNode<T> add(BinaryTreeNode<T> node) {
 		if (root == null)
 			root = node;
 		else {
