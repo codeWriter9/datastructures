@@ -77,6 +77,15 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	public T getData() {
 		return this.object;
 	}
+	
+	/**
+	 * 
+	 * 
+	 * @param object
+	 */
+	public void setData(T object) {
+		this.object = object;
+	}
 
 	/**
 	 * 

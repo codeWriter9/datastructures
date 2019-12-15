@@ -122,7 +122,8 @@ public class BinaryTreeTest extends TestCase {
 			}
 		}
 		System.out.println("-----------------------------------------");
-		System.out.println(" delete (9) node " + tree.delete(new BinaryTreeNode<Integer>(9)));
+		System.out.println(" delete (9) node ");
+		 tree.delete(new BinaryTreeNode<Integer>(9));
 		System.out.println("-----------------------------------------");
 		tree.inOrder(root);
 		System.out.println("-----------------------------------------");
@@ -146,7 +147,8 @@ public class BinaryTreeTest extends TestCase {
 			}
 		}
 		System.out.println("-----------------------------------------");
-		System.out.println(" delete root node " + tree.delete(new BinaryTreeNode<Integer>(5)));
+		System.out.println(" delete root (5) node " );		
+		tree.delete(new BinaryTreeNode<Integer>(5));
 		System.out.println("-----------------------------------------");
 		tree.inOrder(root);
 		System.out.println("-----------------------------------------");

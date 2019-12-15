@@ -1,6 +1,5 @@
 package org.ghosh.sanjay.datastructures;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,58 +16,44 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 		this.root = root;
 	}
 
+	public BinaryTreeNode<T> delete(BinaryTreeNode<T> node) {
+		this.root = deleteKey(root, node);
+		return root;
+	}
+
 	/**
 	 *
 	 *
 	 * 
 	 **/
-	public BinaryTreeNode<T> delete(BinaryTreeNode<T> node) {
-		if (root == null)
-			return null;
-		else {
-			BinaryTreeNode<T> parent = this.findParent(node);
-			if (parent == null) { // if there is no parent then the node to be deleted is a root node
-				BinaryTreeNode<T> successor = inOrderSuccessor(node, new ArrayList<T>());
-				System.out.println(" succesor " + successor);
-				// root node case
-				if (node.getLeft() != null && node.getRight() != null) {
-					// Then it is complicated.
-
-				} else if ((node.getLeft() != null && node.getRight() == null)
-						|| (node.getLeft() == null && node.getRight() != null)) {
-
-				}
-			} else if (!node.equals(parent.getLeft()) && !node.equals(parent.getRight())) {
-				// we did not find the node
-				System.err.println(" did not find the node ");
-				return null;
-			} else {
-				BinaryTreeNode<T> actual = node.equals(parent.getLeft()) ? parent.getLeft() : parent.getRight();
-				boolean isLeft = node.equals(parent.getLeft()) ? true : false;
-				if (actual.getLeft() == null && actual.getRight() == null) {
-					if (isLeft) {
-						parent.setLeft(null);
-					} else {
-						parent.setRight(null);
-					}
-				}
-				if ((actual.getLeft() != null && actual.getRight() == null)
-						|| (actual.getLeft() == null && actual.getRight() != null)) {
-					if (isLeft && actual.getLeft() != null) {
-						parent.setLeft(actual.getLeft());
-					} else if (isLeft && actual.getRight() != null) {
-						parent.setLeft(actual.getRight());
-					} else if (!isLeft && actual.getLeft() != null) {
-						parent.setRight(actual.getLeft());
-					} else if (!isLeft && actual.getRight() != null) {
-						parent.setRight(actual.getRight());
-					}
-				}
-				if (actual.getLeft() != null && actual.getRight() != null) {
-					// Then it is complicated.
-				}
-			}
+	protected BinaryTreeNode<T> deleteKey(BinaryTreeNode<T> root, BinaryTreeNode<T> node) {
+		if (node == null) // if Tree is empty
 			return node;
+		else {
+			/* Otherwise, recur down the tree */
+			if (node.getData().compareTo(root.getData()) < 0)
+				root.setLeft(deleteKey(root.getLeft(), node));
+			else if (node.getData().compareTo(root.getData()) > 0)
+				root.setRight(deleteKey(root.getRight(), node));
+
+			// if key is same as root's key, then This is the node
+			// to be deleted
+			else {
+				// node with only one child or no child
+				if (root.getLeft() == null)
+					return root.getRight();
+				else if (root.getRight() == null)
+					return root.getLeft();
+
+				// node with two children: Get the inorder successor (smallest
+				// in the right subtree)
+				root.setData(minimum(root.getRight()).getData());
+
+				// Delete the inorder successor
+				root.setRight(deleteKey(root.getRight(), root));
+			}
+
+			return root;
 		}
 	}
 
