@@ -27,8 +27,8 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	 * 
 	 **/
 	protected BinaryTreeNode<T> deleteKey(BinaryTreeNode<T> root, BinaryTreeNode<T> node) {
-		if (node == null) // if Tree is empty
-			return node;
+		if (root == null) // if Tree is empty
+			return root;
 		else {
 			/* Otherwise, recur down the tree */
 			if (node.getData().compareTo(root.getData()) < 0)
@@ -54,33 +54,6 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 			}
 
 			return root;
-		}
-	}
-
-	/**
-	 *
-	 * Returns the parent of a node
-	 *
-	 **/
-	public BinaryTreeNode<T> findParent(BinaryTreeNode<T> node) {
-		if (root == null)
-			return null;
-		else {
-			BinaryTreeNode<T> search = null;
-			BinaryTreeNode<T> current = root;
-			BinaryTreeNode<T> saved = null;
-			while (search == null && current != null) {
-				if (current.isEqualTo(node)) {
-					break;
-				} else if (node.isGreaterThan(current)) {
-					saved = current;
-					current = current.getRight();
-				} else if (node.isLessThan(current)) {
-					saved = current;
-					current = current.getLeft();
-				}
-			}
-			return saved;
 		}
 	}
 

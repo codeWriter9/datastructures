@@ -153,6 +153,22 @@ public class BinaryTreeTest extends TestCase {
 		tree.inOrder(root);
 		System.out.println("-----------------------------------------");
 	}
+	
+	/**
+	 *
+	 * Delete root node and check out the tree by traversal
+	 *
+	 * 
+	 */
+	public void testEmptyTree() {
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(null);
+		tree.delete(new BinaryTreeNode<Integer>(0));
+		System.out.println("-----------------------------------------");
+		System.out.println(" delete root (0) node from an empty tree " );
+		System.out.println("-----------------------------------------");
+		tree.inOrder(tree.getRoot());
+		System.out.println("-----------------------------------------");
+	}
 
 	/**
 	 *
