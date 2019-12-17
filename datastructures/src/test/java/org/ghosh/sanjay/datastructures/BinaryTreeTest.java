@@ -50,6 +50,26 @@ public class BinaryTreeTest extends TestCase {
 		tree.preOrder(root, otherList);		
 		assertTrue(otherList.equals(list));		
 	}
+	
+	/**
+	 * 
+	 * Check that pre and post order performs correctly
+	 * 
+	 */
+	public void testPreOrderAndPostOrder() {
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);		
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
+		for (int count = 0; count < 10; count++) {
+			if (count != 5) {
+				tree.add(new BinaryTreeNode<Integer>(count));		
+			}
+		}		
+		System.out.println("------PRE---ORDER------------------------");		
+		tree.preOrder(tree.getRoot());		
+		System.out.println("------POST--ORDER------------------------");		
+		tree.postOrder(tree.getRoot());
+		System.out.println("-----------------------------------------");
+	}
 
 	/**
 	 *
@@ -103,6 +123,31 @@ public class BinaryTreeTest extends TestCase {
 		}		
 		assertTrue(tree.search(new BinaryTreeNode<Integer>(0)).equals(new BinaryTreeNode<Integer>(0)));
 	}
+	
+	/**
+	 *
+	 * Delete a node and check out the tree by traversal
+	 *
+	 * 
+	 */
+	public void testLeftTreeDeleteNode() {
+		List<Integer> list = new ArrayList<Integer>();
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		list.add(5);
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
+		for (int count = 0; count < 10; count++) {
+			if (count != 5) {
+				tree.add(new BinaryTreeNode<Integer>(count));
+				list.add(count);
+			}
+		}
+		System.out.println("-----------------------------------------");
+		System.out.println(" delete (0) node ");
+		 tree.delete(new BinaryTreeNode<Integer>(0));
+		System.out.println("-----------------------------------------");
+		tree.inOrder(root);
+		System.out.println("-----------------------------------------");
+	}
 
 	/**
 	 *
@@ -110,7 +155,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
-	public void testDeleteNode() {
+	public void testRightTreeDeleteNode() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		list.add(5);
