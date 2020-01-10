@@ -1,5 +1,7 @@
 package org.ghosh.sanjay.datastructures;
 
+import static java.lang.Math.max;
+
 import java.util.List;
 
 /**
@@ -238,4 +240,15 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 			System.out.println(node);
 		}
 	}
+	
+	
+	public int height(BinaryTreeNode<T> node) {
+		if (node != null) {
+			int left = height(node.getLeft());
+			int right = height(node.getRight());
+			return max(left, right) + 1;
+		}
+		else return 0;
+	}
+	
 }

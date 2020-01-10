@@ -31,9 +31,8 @@ public class BinaryTreeTest extends TestCase {
 
 	/**
 	 *
-	 *
-	 *
 	 * Test Tree upto 10 elements
+	 * 
 	 */
 	public void testInsertTree() {
 		List<Integer> list = new ArrayList<Integer>();
@@ -73,9 +72,8 @@ public class BinaryTreeTest extends TestCase {
 
 	/**
 	 *
-	 *
-	 *
 	 * Test Tree upto 10 elements
+	 * 
 	 */
 	public void testInsertTreeAndTreeTraversal() {
 		List<Integer> list = new ArrayList<Integer>();
@@ -122,7 +120,22 @@ public class BinaryTreeTest extends TestCase {
 			}
 		}		
 		assertTrue(tree.search(new BinaryTreeNode<Integer>(0)).equals(new BinaryTreeNode<Integer>(0)));
+		assertTrue(tree.search(new BinaryTreeNode<Integer>(9)).equals(new BinaryTreeNode<Integer>(9)));
 	}
+	
+	/**
+	 *
+	 * Search the Tree for a Null node.
+	 *
+	 * 
+	 */
+	public void testSearchNullTree() {	
+		BinaryTreeNode<Integer> root = null;		
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);		
+		assertTrue(tree.search(new BinaryTreeNode<Integer>(null)) == null);
+	}
+	
+	
 	
 	/**
 	 *
@@ -274,5 +287,17 @@ public class BinaryTreeTest extends TestCase {
 			}
 		}
 		assertTrue(tree.maximum(tree.getRoot()).equals(new BinaryTreeNode<Integer>(9)));
+	}
+	
+	public void testHeight() {
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
+		for (int count = 0; count < 10; count++) {
+			if (count != 5) {
+				tree.add(new BinaryTreeNode<Integer>(count));				
+			}
+		}
+		assertTrue(tree.height(tree.getRoot()) == 6);
+		System.out.println(" height " + tree.height(tree.getRoot()));
 	}
 }
