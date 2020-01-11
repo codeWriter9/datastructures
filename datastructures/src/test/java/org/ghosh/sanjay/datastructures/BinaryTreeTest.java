@@ -1,8 +1,13 @@
 package org.ghosh.sanjay.datastructures;
 
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.slf4j.Logger;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -12,6 +17,9 @@ import junit.framework.TestSuite;
  * Unit test for simple App.
  */
 public class BinaryTreeTest extends TestCase {
+
+	private static final Logger LOG = getLogger(lookup().lookupClass());
+
 	/**
 	 * Create the test case
 	 *
@@ -46,28 +54,28 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		tree.preOrder(root, otherList);		
-		assertTrue(otherList.equals(list));		
+		tree.preOrder(root, otherList);
+		assertTrue(otherList.equals(list));
 	}
-	
+
 	/**
 	 * 
 	 * Check that pre and post order performs correctly
 	 * 
 	 */
 	public void testPreOrderAndPostOrder() {
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);		
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
 		for (int count = 0; count < 10; count++) {
 			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));		
+				tree.add(new BinaryTreeNode<Integer>(count));
 			}
-		}		
-		System.out.println("------PRE---ORDER------------------------");		
-		tree.preOrder(tree.getRoot());		
-		System.out.println("------POST--ORDER------------------------");		
+		}
+		LOG.info("------PRE---ORDER------------------------");
+		tree.preOrder(tree.getRoot());
+		LOG.info("------POST--ORDER------------------------");
 		tree.postOrder(tree.getRoot());
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 	}
 
 	/**
@@ -118,25 +126,23 @@ public class BinaryTreeTest extends TestCase {
 				tree.add(new BinaryTreeNode<Integer>(count));
 				list.add(count);
 			}
-		}		
+		}
 		assertTrue(tree.search(new BinaryTreeNode<Integer>(0)).equals(new BinaryTreeNode<Integer>(0)));
 		assertTrue(tree.search(new BinaryTreeNode<Integer>(9)).equals(new BinaryTreeNode<Integer>(9)));
 	}
-	
+
 	/**
 	 *
 	 * Search the Tree for a Null node.
 	 *
 	 * 
 	 */
-	public void testSearchNullTree() {	
-		BinaryTreeNode<Integer> root = null;		
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);		
+	public void testSearchNullTree() {
+		BinaryTreeNode<Integer> root = null;
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
 		assertTrue(tree.search(new BinaryTreeNode<Integer>(null)) == null);
 	}
-	
-	
-	
+
 	/**
 	 *
 	 * Delete a node and check out the tree by traversal
@@ -154,12 +160,12 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		System.out.println("-----------------------------------------");
-		System.out.println(" delete (0) node ");
-		 tree.delete(new BinaryTreeNode<Integer>(0));
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
+		LOG.info(" delete (0) node ");
+		tree.delete(new BinaryTreeNode<Integer>(0));
+		LOG.info("-----------------------------------------");
 		tree.inOrder(root);
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 	}
 
 	/**
@@ -179,12 +185,12 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		System.out.println("-----------------------------------------");
-		System.out.println(" delete (9) node ");
-		 tree.delete(new BinaryTreeNode<Integer>(9));
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
+		LOG.info(" delete (9) node ");
+		tree.delete(new BinaryTreeNode<Integer>(9));
+		LOG.info("-----------------------------------------");
 		tree.inOrder(root);
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 	}
 
 	/**
@@ -204,14 +210,14 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		System.out.println("-----------------------------------------");
-		System.out.println(" delete root (5) node " );		
+		LOG.info("-----------------------------------------");
+		LOG.info(" delete root (5) node ");
 		tree.delete(new BinaryTreeNode<Integer>(5));
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 		tree.inOrder(root);
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 	}
-	
+
 	/**
 	 *
 	 * Delete root node and check out the tree by traversal
@@ -221,11 +227,11 @@ public class BinaryTreeTest extends TestCase {
 	public void testEmptyTree() {
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(null);
 		tree.delete(new BinaryTreeNode<Integer>(0));
-		System.out.println("-----------------------------------------");
-		System.out.println(" delete root (0) node from an empty tree " );
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
+		LOG.info(" delete root (0) node from an empty tree ");
+		LOG.info("-----------------------------------------");
 		tree.inOrder(tree.getRoot());
-		System.out.println("-----------------------------------------");
+		LOG.info("-----------------------------------------");
 	}
 
 	/**
@@ -288,16 +294,21 @@ public class BinaryTreeTest extends TestCase {
 		}
 		assertTrue(tree.maximum(tree.getRoot()).equals(new BinaryTreeNode<Integer>(9)));
 	}
-	
+
+	/**
+	 * 
+	 * Test the Height
+	 * 
+	 */
 	public void testHeight() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
 		for (int count = 0; count < 10; count++) {
 			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));				
+				tree.add(new BinaryTreeNode<Integer>(count));
 			}
 		}
 		assertTrue(tree.height(tree.getRoot()) == 6);
-		System.out.println(" height " + tree.height(tree.getRoot()));
+		LOG.info(" height " + tree.height(tree.getRoot()));
 	}
 }

@@ -1,7 +1,12 @@
 package org.ghosh.sanjay.datastructures;
 
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -11,6 +16,8 @@ import junit.framework.TestSuite;
  * Unit test for Queue.
  */
 public class QueueTest extends TestCase {
+
+	private static final Logger LOG = getLogger(lookup().lookupClass());
 
 	/**
 	 * Create the test case
