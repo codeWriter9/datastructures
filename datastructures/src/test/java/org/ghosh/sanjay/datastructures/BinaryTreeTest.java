@@ -1,47 +1,32 @@
 package org.ghosh.sanjay.datastructures;
 
 import static java.lang.invoke.MethodHandles.lookup;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
  */
-public class BinaryTreeTest extends TestCase {
+@RunWith(JUnit4.class)
+public class BinaryTreeTest {
 
 	private static final Logger LOG = getLogger(lookup().lookupClass());
-
-	/**
-	 * Create the test case
-	 *
-	 * @param testName
-	 *            name of the test case
-	 */
-	public BinaryTreeTest(String testName) {
-		super(testName);
-	}
-
-	/**
-	 * @return the suite of tests being tested
-	 */
-	public static Test suite() {
-		return new TestSuite(BinaryTreeTest.class);
-	}
 
 	/**
 	 *
 	 * Test Tree upto 10 elements
 	 * 
 	 */
+	@Test
 	public void testInsertTree() {
 		List<Integer> list = new ArrayList<Integer>();
 		List<Integer> otherList = new ArrayList<Integer>();
@@ -55,7 +40,7 @@ public class BinaryTreeTest extends TestCase {
 			}
 		}
 		tree.preOrder(root, otherList);
-		assertTrue(otherList.equals(list));
+		assertEquals(otherList, list);
 	}
 
 	/**
@@ -63,6 +48,7 @@ public class BinaryTreeTest extends TestCase {
 	 * Check that pre and post order performs correctly
 	 * 
 	 */
+	@Test
 	public void testPreOrderAndPostOrder() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
@@ -83,6 +69,7 @@ public class BinaryTreeTest extends TestCase {
 	 * Test Tree upto 10 elements
 	 * 
 	 */
+	@Test
 	public void testInsertTreeAndTreeTraversal() {
 		List<Integer> list = new ArrayList<Integer>();
 		List<Integer> preOrderList = new ArrayList<Integer>();
@@ -105,9 +92,9 @@ public class BinaryTreeTest extends TestCase {
 		tree.preOrder(root, preOrderList);
 		tree.inOrder(root, inOrderList);
 		tree.postOrder(root, postOrderList);
-		assertTrue(preOrderList.equals(checkList1));
-		assertTrue(inOrderList.equals(checkList2));
-		assertTrue(postOrderList.equals(checkList3));
+		assertEquals(preOrderList, checkList1);
+		assertEquals(inOrderList, checkList2);
+		assertEquals(postOrderList, checkList3);
 	}
 
 	/**
@@ -116,6 +103,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testSearchTree() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -127,8 +115,8 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		assertTrue(tree.search(new BinaryTreeNode<Integer>(0)).equals(new BinaryTreeNode<Integer>(0)));
-		assertTrue(tree.search(new BinaryTreeNode<Integer>(9)).equals(new BinaryTreeNode<Integer>(9)));
+		assertEquals(tree.search(new BinaryTreeNode<Integer>(0)),new BinaryTreeNode<Integer>(0));
+		assertEquals(tree.search(new BinaryTreeNode<Integer>(9)),new BinaryTreeNode<Integer>(9));
 	}
 
 	/**
@@ -137,10 +125,11 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testSearchNullTree() {
 		BinaryTreeNode<Integer> root = null;
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		assertTrue(tree.search(new BinaryTreeNode<Integer>(null)) == null);
+		assertEquals(tree.search(new BinaryTreeNode<Integer>(null)), null);
 	}
 
 	/**
@@ -149,6 +138,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testLeftTreeDeleteNode() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -174,6 +164,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testRightTreeDeleteNode() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -199,6 +190,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testDeleteRootNode() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -224,6 +216,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testEmptyTree() {
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(null);
 		tree.delete(new BinaryTreeNode<Integer>(0));
@@ -240,6 +233,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testInOrderPredecessor() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -251,8 +245,8 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		assertTrue(tree.inOrderSuccessor(new BinaryTreeNode<Integer>(5), new ArrayList<Integer>())
-				.equals(new BinaryTreeNode<Integer>(6)));
+		assertEquals(tree.inOrderSuccessor(new BinaryTreeNode<Integer>(5), new ArrayList<Integer>()),
+				new BinaryTreeNode<Integer>(6));
 	}
 
 	/**
@@ -261,6 +255,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testMinima() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -272,7 +267,7 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		assertTrue(tree.minimum(tree.getRoot()).equals(new BinaryTreeNode<Integer>(0)));
+		assertEquals(tree.minimum(tree.getRoot()), new BinaryTreeNode<Integer>(0));
 	}
 
 	/**
@@ -281,6 +276,7 @@ public class BinaryTreeTest extends TestCase {
 	 *
 	 * 
 	 */
+	@Test
 	public void testMaxima() {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -292,7 +288,7 @@ public class BinaryTreeTest extends TestCase {
 				list.add(count);
 			}
 		}
-		assertTrue(tree.maximum(tree.getRoot()).equals(new BinaryTreeNode<Integer>(9)));
+		assertEquals(tree.maximum(tree.getRoot()), new BinaryTreeNode<Integer>(9));
 	}
 
 	/**
@@ -300,6 +296,7 @@ public class BinaryTreeTest extends TestCase {
 	 * Test the Height
 	 * 
 	 */
+	@Test
 	public void testHeight() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
@@ -308,7 +305,7 @@ public class BinaryTreeTest extends TestCase {
 				tree.add(new BinaryTreeNode<Integer>(count));
 			}
 		}
-		assertTrue(tree.height(tree.getRoot()) == 6);
+		assertEquals(tree.height(tree.getRoot()), 6);
 		LOG.info(" height " + tree.height(tree.getRoot()));
 	}
 }

@@ -1,45 +1,32 @@
 package org.ghosh.sanjay.datastructures;
 
 import static java.lang.invoke.MethodHandles.lookup;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for Stacks.
+ * 
  */
-public class StackTest extends TestCase {
+@RunWith(JUnit4.class)
+public class StackTest {
 
 	private static final Logger LOG = getLogger(lookup().lookupClass());
 
-	/**
-	 * Create the test case
-	 *
-	 * @param testName
-	 *            name of the test case
-	 */
-	public StackTest(String testName) {
-		super(testName);
-	}
-
-	/**
-	 * @return the suite of tests being tested
-	 */
-	public static Test suite() {
-		return new TestSuite(StackTest.class);
-	}
 
 	/**
 	 * Test Stack upto 10 elements
 	 */
+	@Test
 	public void testStack() {
 		Stack<Integer> stack = new Stack<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -49,12 +36,13 @@ public class StackTest extends TestCase {
 		}
 		Collections.reverse(list);
 		for (Integer element : list)
-			assertTrue(element == stack.pop());
+			assertEquals(element, stack.pop(), " Element Not equal ");
 	}
 
 	/**
 	 * Test a stack that has been popped out and then again pushed in
 	 */
+	@Test
 	public void testStack2() {
 		Stack<Integer> stack = new Stack<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -72,7 +60,7 @@ public class StackTest extends TestCase {
 		}
 		Collections.reverse(list);
 		for (Integer element : list)
-			assertTrue(element.equals(stack.pop()));
+			assertEquals(element, stack.pop(), " Element Not equal ");
 	}
 
 	/**
@@ -80,6 +68,7 @@ public class StackTest extends TestCase {
 	 * Test the stack for large number of elements [ 1 million ]
 	 * 
 	 */
+	@Test
 	public void testStack3() {
 		Stack<Integer> stack = new Stack<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -89,6 +78,6 @@ public class StackTest extends TestCase {
 		}
 		Collections.reverse(list);
 		for (Integer element : list)
-			assertTrue(element.equals(stack.pop()));
+			assertEquals(element, stack.pop(), " Element Not equal ");
 	}
 }

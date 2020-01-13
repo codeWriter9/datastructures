@@ -1,46 +1,32 @@
 package org.ghosh.sanjay.datastructures;
 
 import static java.lang.invoke.MethodHandles.lookup;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for Queue.
  */
-public class QueueTest extends TestCase {
+@RunWith(JUnit4.class)
+public class QueueTest {
 
-	private static final Logger LOG = getLogger(lookup().lookupClass());
-
-	/**
-	 * Create the test case
-	 *
-	 * @param testName
-	 *            name of the test case
-	 */
-	public QueueTest(String testName) {
-		super(testName);
-	}
-
-	/**
-	 * @return the suite of tests being tested
-	 */
-	public static Test suite() {
-		return new TestSuite(QueueTest.class);
-	}
+	private static final Logger LOG = getLogger(lookup().lookupClass());	
 
 	/**
 	 * 
 	 * Basic test to check if it can handle upto 10 elements
 	 * 
 	 */
+	@Test
 	public void testQueue() {
 		Queue<Integer> queue = new Queue<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -49,7 +35,7 @@ public class QueueTest extends TestCase {
 			queue.enqueue(count);
 		}
 		for (Integer element : list)
-			assertTrue(element.equals(queue.dequeue()));
+			assertEquals(element, queue.dequeue());
 	}
 
 	/**
@@ -57,6 +43,7 @@ public class QueueTest extends TestCase {
 	 * Basic test to check if it can handle upto 100 elements
 	 * 
 	 */
+	@Test
 	public void testQueue2() {
 		Queue<Integer> queue = new Queue<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -73,7 +60,7 @@ public class QueueTest extends TestCase {
 			queue.enqueue(count);
 		}
 		for (Integer element : list)
-			assertTrue(element.equals(queue.dequeue()));
+			assertEquals(element, queue.dequeue());
 	}
 
 	/**
@@ -81,6 +68,7 @@ public class QueueTest extends TestCase {
 	 * Basic test to check if it can handle upto 1 M elements
 	 * 
 	 */
+	@Test
 	public void testQueue3() {
 		Queue<Integer> queue = new Queue<Integer>();
 		List<Integer> list = new ArrayList<Integer>();
@@ -89,6 +77,6 @@ public class QueueTest extends TestCase {
 			queue.enqueue(count);
 		}
 		for (Integer element : list)
-			assertTrue(element.equals(queue.dequeue()));
+			assertEquals(element, queue.dequeue());
 	}
 }
