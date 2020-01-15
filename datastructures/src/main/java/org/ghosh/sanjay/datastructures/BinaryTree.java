@@ -13,11 +13,23 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 
 	protected BinaryTreeNode<T> root;
 
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param root
+	 */
 	public BinaryTree(BinaryTreeNode<T> root) {
 		super();
 		this.root = root;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @param node
+	 * @return BinaryTreeNode<T>
+	 */
 	public BinaryTreeNode<T> delete(BinaryTreeNode<T> node) {
 		this.root = deleteKey(root, node);
 		return root;
@@ -117,16 +129,22 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 		return root;
 	}
 
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	public BinaryTreeNode<T> getRoot() {
 		return root;
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @return
+	 */
 	public BinaryTreeNode<T> minimum(BinaryTreeNode<T> node) {
 		if (node.getLeft() == null)
 			return node;
@@ -135,11 +153,13 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @return
+	 */
 	public BinaryTreeNode<T> maximum(BinaryTreeNode<T> node) {
 		if (node.getRight() == null)
 			return node;
@@ -148,11 +168,14 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @param list
+	 * @return
+	 */
 	public BinaryTreeNode<T> inOrderSuccessor(BinaryTreeNode<T> node, List<? super T> list) {
 		if (node != null) {
 			inOrder(getRoot(), list);
@@ -163,10 +186,47 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param list
+	 */
+	public void levelOrder(List<? super T> list) {
+		if (getRoot() == null) {
+			return;
+		}
+		int h = height(getRoot());
+		for (int level = 0; level < h; level++) {
+			printLevel(getRoot(), level, list);
+		}
+	}
+
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @param level
+	 * @param list
+	 */	
+	private void printLevel(BinaryTreeNode<T> node, int level, List<? super T> list) {		
+		if (node == null)
+			return;
+		else if (level == 0)
+			list.add(node.getData());
+		else {
+			printLevel(node.getLeft(), level - 1, list);			
+			printLevel(node.getRight(), level - 1, list);
+		}
+	}
+
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @param list
+	 */
 	public void inOrder(BinaryTreeNode<T> node, List<? super T> list) {
 		if (node != null) {
 			inOrder(node.getLeft(), list);
@@ -176,10 +236,11 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 */
 	public void inOrder(BinaryTreeNode<T> node) {
 		if (node != null) {
 			inOrder(node.getLeft());
@@ -189,10 +250,12 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @param list
+	 */
 	public void preOrder(BinaryTreeNode<T> node, List<? super T> list) {
 		if (node != null) {
 			list.add(node.getData());
@@ -202,10 +265,11 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 */
 	public void preOrder(BinaryTreeNode<T> node) {
 		if (node != null) {
 			System.out.println(node);
@@ -215,10 +279,12 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
-	 *
-	 *
-	 **/
+	 * 
+	 * 
+	 * 
+	 * @param node
+	 * @param list
+	 */
 	public void postOrder(BinaryTreeNode<T> node, List<? super T> list) {
 		if (node != null) {
 			postOrder(node.getLeft(), list);
@@ -228,11 +294,10 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	}
 
 	/**
-	 *
 	 * 
-	 *
-	 *
-	 **/
+	 * 
+	 * @param node
+	 */
 	public void postOrder(BinaryTreeNode<T> node) {
 		if (node != null) {
 			inOrder(node.getLeft());
@@ -240,15 +305,19 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 			System.out.println(node);
 		}
 	}
-	
-	
+
+	/**
+	 * 
+	 * 
+	 * @param node
+	 * @return
+	 */
 	public int height(BinaryTreeNode<T> node) {
 		if (node != null) {
 			int left = height(node.getLeft());
 			int right = height(node.getRight());
 			return max(left, right) + 1;
-		}
-		else return 0;
+		} else
+			return 0;
 	}
-	
 }

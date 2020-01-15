@@ -6,6 +6,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
@@ -41,6 +42,28 @@ public class BinaryTreeTest {
 		}
 		tree.preOrder(root, otherList);
 		assertEquals(otherList, list);
+	}
+
+	/**
+	 * 
+	 * Check that level order performs correctly
+	 * 
+	 */
+	@Test
+	public void testLevelOrder() {
+		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
+		for (int count = 0; count < 10; count++) {
+			if (count != 5) {
+				tree.add(new BinaryTreeNode<Integer>(count));
+			}
+		}
+		List<Integer> order = new LinkedList<>();		
+		LOG.info("------LEVEL---ORDER------------------------");
+		tree.levelOrder(order);
+		LOG.info(order.toString());
+		assertEquals(Arrays.asList(new Integer[] {5, 0, 6, 1, 7, 2, 8, 3, 9, 4}), order);
+		LOG.info("-----------------------------------------");
 	}
 
 	/**
@@ -115,8 +138,8 @@ public class BinaryTreeTest {
 				list.add(count);
 			}
 		}
-		assertEquals(tree.search(new BinaryTreeNode<Integer>(0)),new BinaryTreeNode<Integer>(0));
-		assertEquals(tree.search(new BinaryTreeNode<Integer>(9)),new BinaryTreeNode<Integer>(9));
+		assertEquals(tree.search(new BinaryTreeNode<Integer>(0)), new BinaryTreeNode<Integer>(0));
+		assertEquals(tree.search(new BinaryTreeNode<Integer>(9)), new BinaryTreeNode<Integer>(9));
 	}
 
 	/**
