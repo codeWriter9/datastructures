@@ -16,7 +16,7 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	 *
 	 *
 	 **/
-	public BinaryTreeNode(T object) {
+	BinaryTreeNode(T object) {
 		this.object = object;
 		this.left = null;
 		this.right = null;
@@ -27,10 +27,22 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	 *
 	 *
 	 **/
-	public BinaryTreeNode(T object, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
-		this.object = object;
+	BinaryTreeNode(T object, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
+		this(object);
 		this.left = left;
 		this.right = right;
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param object
+	 * @param left
+	 * @param right
+	 * @return BinaryTreeNode<T>
+	 */
+	public static <T extends Comparable<T>> BinaryTreeNode<T> binaryTreeNode(T object, BinaryTreeNode<T> left, BinaryTreeNode<T> right) {
+		return new BinaryTreeNode<T>(object, left, right); 
 	}
 
 	/**
@@ -123,19 +135,29 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	 *
 	 **/
 	@SuppressWarnings("unchecked")
+	@Override
 	public boolean equals(Object o) {
 		if (o instanceof BinaryTreeNode<?>)
 			return isEqualTo((BinaryTreeNode<T>) o);
 		else
 			return false;
 	}
+	
+	/**
+	 * 
+	 * 
+	 */
+	@Override
+	public int hashCode() {		
+		return this.object == null ? 0: this.object.hashCode() * 17 + 31;
+	}
+	
 
 	/**
 	 *
 	 *
 	 **/
-	public String toString() {
-		String internal = " [ " + " object: " + object.toString() + " ] ";
-		return internal;
+	public String toString() {		
+		return " [ " + " object: " + object.toString() + " ] ";
 	}
 }
