@@ -1,8 +1,12 @@
 package org.ghosh.sanjay.datastructures;
 
 import static java.lang.Math.max;
+import static java.lang.invoke.MethodHandles.lookup;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.List;
+
+import org.slf4j.Logger;
 
 /**
  *
@@ -10,6 +14,8 @@ import java.util.List;
  *
  **/
 public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
+	
+	private static final Logger LOG = getLogger(lookup().lookupClass());
 
 	protected BinaryTreeNode<T> root;
 
@@ -244,7 +250,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	public void inOrder(BinaryTreeNode<T> node) {
 		if (node != null) {
 			inOrder(node.getLeft());
-			System.out.println(node);
+			LOG.info(node.toString());
 			inOrder(node.getRight());
 		}
 	}
@@ -272,7 +278,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 	 */
 	public void preOrder(BinaryTreeNode<T> node) {
 		if (node != null) {
-			System.out.println(node);
+			LOG.info(node.toString());
 			preOrder(node.getLeft());
 			preOrder(node.getRight());
 		}
@@ -302,7 +308,7 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 		if (node != null) {
 			inOrder(node.getLeft());
 			inOrder(node.getRight());
-			System.out.println(node);
+			LOG.info(node.toString());
 		}
 	}
 

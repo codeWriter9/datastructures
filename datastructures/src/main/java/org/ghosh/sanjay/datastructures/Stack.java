@@ -1,9 +1,7 @@
 package org.ghosh.sanjay.datastructures;
 
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
-
+import java.util.List;
 
 /**
  * 
@@ -14,10 +12,10 @@ import java.util.Arrays;
  * @param <T>
  */
 public class Stack<T> {
-	
+
 	private List<T> array;
 	private int top;
-	
+
 	/**
 	 * 
 	 * public constructor
@@ -27,7 +25,7 @@ public class Stack<T> {
 		top = -1;
 		array = new ArrayList<T>(0);
 	}
-	
+
 	/**
 	 *
 	 * Checks the empty-ness of the Stack
@@ -37,37 +35,35 @@ public class Stack<T> {
 	public boolean isEmpty() {
 		return top == -1;
 	}
-	
-	
+
 	/**
 	 *
 	 * Returns the element at the top of the stack.
 	 * 
-	 *@return T element
+	 * @return T element
 	 **/
 	public T pop() {
 		return array.get(top--);
 	}
-	
+
 	/**
 	 *
 	 *
 	 * This pushes the element to the top of the Stack
 	 *
-	 *@param T element to be pushed
+	 * @param T
+	 *            element to be pushed
 	 **/
 	public void push(T element) {
-		if(array.size() > top) {
+		if (array.size() > top) {
 			array.add(++top, element);
-		}
-		else {
+		} else {
 			array.add(element);
-		    top++;
+			top++;
 		}
-		
-	}	
-	
-	
+
+	}
+
 	/**
 	 * 
 	 * Returns the String representation of this stack
@@ -75,6 +71,6 @@ public class Stack<T> {
 	 * @return String
 	 */
 	public String toString() {
-		return array.toString();	
+		return array.toString();
 	}
 }
