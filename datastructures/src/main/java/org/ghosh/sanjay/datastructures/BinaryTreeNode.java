@@ -128,6 +128,7 @@ public class BinaryTreeNode<T extends Comparable<T>> {
 	public boolean isLessThan(BinaryTreeNode<T> other) {
 		return this.object.compareTo((T) other.object) < 0;
 	}
+	
 
 	/**
 	 *

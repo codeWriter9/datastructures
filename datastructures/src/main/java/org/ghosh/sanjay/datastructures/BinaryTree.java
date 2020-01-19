@@ -326,4 +326,17 @@ public class BinaryTree<T extends Comparable<T>> extends Tree<T> {
 		} else
 			return 0;
 	}
+	
+	/**
+	 * 
+	 * 
+	 * @param root
+	 * @return
+	 */
+	public int balanceFactor(BinaryTreeNode<T> root) {
+		if(root != null) {
+			return height(root.getRight()) - height(root.getLeft());
+		}
+		return 0;
+	}
 }

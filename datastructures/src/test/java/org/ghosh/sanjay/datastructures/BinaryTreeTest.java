@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -321,6 +322,20 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testHeight() {
+		BinaryTree<Integer> tree = createBST();
+		assertEquals(tree.height(tree.getRoot()), 6);
+		LOG.info(" height " + tree.height(tree.getRoot()));
+	}
+	
+	@Test
+	public void testBalanceFactor() {		
+		BinaryTree<Integer> tree = createBST();		
+		assertEquals(tree.balanceFactor(tree.getRoot()), -1);
+		LOG.info(" balance Factor " + tree.balanceFactor(tree.getRoot()));
+	}
+	
+	@Ignore
+	private BinaryTree<Integer> createBST() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
 		for (int count = 0; count < 10; count++) {
@@ -328,7 +343,6 @@ public class BinaryTreeTest {
 				tree.add(new BinaryTreeNode<Integer>(count));
 			}
 		}
-		assertEquals(tree.height(tree.getRoot()), 6);
-		LOG.info(" height " + tree.height(tree.getRoot()));
-	}
+		return tree;
+	}  
 }
