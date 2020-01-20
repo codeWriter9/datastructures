@@ -34,13 +34,7 @@ public class BinaryTreeTest {
 		List<Integer> otherList = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		tree.preOrder(root, otherList);
 		assertEquals(otherList, list);
 	}
@@ -52,18 +46,12 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testLevelOrder() {
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-			}
-		}
-		List<Integer> order = new LinkedList<>();		
+		BinaryTree<Integer> tree = createBST();
+		List<Integer> order = new LinkedList<>();
 		LOG.info("------LEVEL---ORDER------------------------");
 		tree.levelOrder(order);
 		LOG.info(order.toString());
-		assertEquals(Arrays.asList(new Integer[] {5, 0, 6, 1, 7, 2, 8, 3, 9, 4}), order);
+		assertEquals(Arrays.asList(new Integer[] { 5, 0, 6, 1, 7, 2, 8, 3, 9, 4 }), order);
 		LOG.info("-----------------------------------------");
 	}
 
@@ -73,14 +61,8 @@ public class BinaryTreeTest {
 	 * 
 	 */
 	@Test
-	public void testPreOrderAndPostOrder() {
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-			}
-		}
+	public void testPreOrderAndPostOrder() {		
+		BinaryTree<Integer> tree = createBST();
 		LOG.info("------PRE---ORDER------------------------");
 		tree.preOrder(tree.getRoot());
 		LOG.info("------POST--ORDER------------------------");
@@ -129,16 +111,9 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testSearchTree() {
-		List<Integer> list = new ArrayList<Integer>();
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		List<Integer> list = new ArrayList<Integer>();		
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		assertEquals(tree.search(new BinaryTreeNode<Integer>(0)), new BinaryTreeNode<Integer>(0));
 		assertEquals(tree.search(new BinaryTreeNode<Integer>(9)), new BinaryTreeNode<Integer>(9));
 	}
@@ -167,13 +142,7 @@ public class BinaryTreeTest {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		LOG.info("-----------------------------------------");
 		LOG.info(" delete (0) node ");
 		tree.delete(new BinaryTreeNode<Integer>(0));
@@ -193,13 +162,7 @@ public class BinaryTreeTest {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		LOG.info("-----------------------------------------");
 		LOG.info(" delete (9) node ");
 		tree.delete(new BinaryTreeNode<Integer>(9));
@@ -219,13 +182,7 @@ public class BinaryTreeTest {
 		List<Integer> list = new ArrayList<Integer>();
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		LOG.info("-----------------------------------------");
 		LOG.info(" delete root (5) node ");
 		tree.delete(new BinaryTreeNode<Integer>(5));
@@ -259,16 +216,9 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testInOrderPredecessor() {
-		List<Integer> list = new ArrayList<Integer>();
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		List<Integer> list = new ArrayList<Integer>();		
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		assertEquals(tree.inOrderSuccessor(new BinaryTreeNode<Integer>(5), new ArrayList<Integer>()),
 				new BinaryTreeNode<Integer>(6));
 	}
@@ -281,16 +231,9 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testMinima() {
-		List<Integer> list = new ArrayList<Integer>();
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		List<Integer> list = new ArrayList<Integer>();		
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		assertEquals(tree.minimum(tree.getRoot()), new BinaryTreeNode<Integer>(0));
 	}
 
@@ -302,16 +245,9 @@ public class BinaryTreeTest {
 	 */
 	@Test
 	public void testMaxima() {
-		List<Integer> list = new ArrayList<Integer>();
-		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
+		List<Integer> list = new ArrayList<Integer>();		
 		list.add(5);
-		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
-		for (int count = 0; count < 10; count++) {
-			if (count != 5) {
-				tree.add(new BinaryTreeNode<Integer>(count));
-				list.add(count);
-			}
-		}
+		BinaryTree<Integer> tree = createBST();
 		assertEquals(tree.maximum(tree.getRoot()), new BinaryTreeNode<Integer>(9));
 	}
 
@@ -326,14 +262,20 @@ public class BinaryTreeTest {
 		assertEquals(tree.height(tree.getRoot()), 6);
 		LOG.info(" height " + tree.height(tree.getRoot()));
 	}
-	
+
 	@Test
-	public void testBalanceFactor() {		
-		BinaryTree<Integer> tree = createBST();		
+	public void testBalanceFactor() {
+		BinaryTree<Integer> tree = createBST();
 		assertEquals(tree.balanceFactor(tree.getRoot()), -1);
 		LOG.info(" balance Factor " + tree.balanceFactor(tree.getRoot()));
 	}
-	
+
+	/**
+	 * 
+	 * 
+	 * 
+	 * @return BinaryTree<Integer>
+	 */
 	@Ignore
 	private BinaryTree<Integer> createBST() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
@@ -344,5 +286,5 @@ public class BinaryTreeTest {
 			}
 		}
 		return tree;
-	}  
+	}
 }
