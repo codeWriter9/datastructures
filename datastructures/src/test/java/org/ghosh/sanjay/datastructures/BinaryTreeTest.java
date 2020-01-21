@@ -57,16 +57,18 @@ public class BinaryTreeTest {
 
 	/**
 	 * 
-	 * Check that pre and post order performs correctly
+	 * Check that In order and pre order and post order performs correctly
 	 * 
 	 */
 	@Test
-	public void testPreOrderAndPostOrder() {		
+	public void testInOrderAndPreOrderAndPostOrder() {		
 		BinaryTree<Integer> tree = createBST();
 		LOG.info("------PRE---ORDER------------------------");
 		tree.preOrder(tree.getRoot());
 		LOG.info("------POST--ORDER------------------------");
 		tree.postOrder(tree.getRoot());
+		LOG.info("-------IN---ORDER------------------------");
+		tree.inOrder(tree.getRoot());
 		LOG.info("-----------------------------------------");
 	}
 
