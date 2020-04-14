@@ -263,6 +263,10 @@ public class BinaryTreeTest {
 		LOG.info(" height " + tree.height(tree.getRoot()));
 	}
 
+	/**
+	 * 
+	 * 
+	 */
 	@Test
 	public void testBalanceFactor() {
 		BinaryTree<Integer> tree = createBST();
