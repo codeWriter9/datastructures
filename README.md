@@ -41,7 +41,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Sanjay Ghosh** - *Initial work* - [Multithreading](https://github.com/codeWriter9/multithreading)
+* **Sanjay Ghosh** - *Initial work* - [Datastructures](https://github.com/codeWriter9/datastructures)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
