@@ -7,16 +7,13 @@ import static org.slf4j.LoggerFactory.getLogger;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 
 
 /**
  * Unit test for Queue.
  */
-@RunWith(JUnit4.class)
 public class QueueTest {
 
 	private static final Logger LOG = getLogger(lookup().lookupClass());	

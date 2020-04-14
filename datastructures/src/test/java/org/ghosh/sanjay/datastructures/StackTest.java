@@ -8,16 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 
 /**
  * Unit test for Stacks.
  * 
  */
-@RunWith(JUnit4.class)
+
 public class StackTest {
 
 	private static final Logger LOG = getLogger(lookup().lookupClass());

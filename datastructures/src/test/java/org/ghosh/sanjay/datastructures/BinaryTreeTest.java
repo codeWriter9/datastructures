@@ -9,16 +9,14 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 
 /**
  * Unit test for simple App.
  */
-@RunWith(JUnit4.class)
+
 public class BinaryTreeTest {
 
 	private static final Logger LOG = getLogger(lookup().lookupClass());
@@ -277,8 +275,7 @@ public class BinaryTreeTest {
 	 * 
 	 * 
 	 * @return BinaryTree<Integer>
-	 */
-	@Ignore
+	 */	
 	private BinaryTree<Integer> createBST() {
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<Integer>(5);
 		BinaryTree<Integer> tree = new BinaryTree<Integer>(root);
